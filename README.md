@@ -3,7 +3,7 @@ Robot Movement Table
 How to run the program
 1) Install node and npm
 2) clone the repository
-3) cd my-app
+3) cd my-robot
 4) npm install
 5) npm start
 
