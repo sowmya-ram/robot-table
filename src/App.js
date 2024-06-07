@@ -10,6 +10,7 @@ const App = () => {
   const [location, setLocation] = useState('');
   const directions = ['north', 'east', 'south', 'west'];
 
+  // On change of the input values during  placement function 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewPosition((prevPosition) => ({ ...prevPosition, [name]: value }));
@@ -20,7 +21,7 @@ const App = () => {
     const { x, y, direction } = newPosition;
     const newX = parseInt(x, 10);
     const newY = parseInt(y, 10);
-
+// Test if the coodinates does not exceed the lenght of the x and y coordinates 
     if (
       newX >= 0 && newX < initialGrid[0].length &&
       newY >= 0 && newY < initialGrid.length &&
@@ -33,7 +34,8 @@ const App = () => {
       alert('Invalid position');
     }
   };
-  
+
+   // Set the location state to the current position
   const reportPosition = () => {
     if (!isPlaced) return;
     setLocation(`OUTPUT: ${robot.x}, ${robot.y}, ${robot.direction}`);
@@ -47,6 +49,7 @@ const App = () => {
         case 'north':
           return { ...prevRobot, y: Math.max(0, y - 1) };
         case 'east':
+          // towards east till  4 increment each time with 1
           return { ...prevRobot, x: Math.min(initialGrid[0].length - 1, x + 1) };
         case 'south':
           return { ...prevRobot, y: Math.min(initialGrid.length - 1, y + 1) };
